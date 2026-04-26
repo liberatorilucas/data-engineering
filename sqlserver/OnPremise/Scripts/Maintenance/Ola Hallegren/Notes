@@ -1,0 +1,110 @@
+
+IndexOptimize
+-------------
+
+IndexOptimize is the SQL Server Maintenance Solution’s stored procedure for rebuilding and reorganizing indexes and updating statistics. IndexOptimize is supported on SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014, SQL Server 2016, SQL Server 2017, SQL Server 2019, Azure SQL Database, and Azure SQL Database Managed Instance.
+
+Parameters
+
+    Databases
+        Select databases. The keywords SYSTEM_DATABASES, USER_DATABASES, ALL_DATABASES, and AVAILABILITY_GROUP_DATABASES are supported. The hyphen character (-) is used to exclude databases, and the percent character (%) is used for wildcard selection. All of these operations can be combined by using the comma (,).
+
+    Fragmentation Level
+        Specify index maintenance operations to be performed on a low-fragmented index.
+
+            FragmentationLow
+            FragmentationMedium
+            FragmentationHigh
+    
+    FragmentationLevel
+        FragmentationLevel1
+            Set the lower limit, as a percentage, for medium fragmentation. The default is 5 percent. 
+        FragmentationLevel2
+            Set the lower limit, as a percentage, for high fragmentation. The default is 30 percent.
+    
+    NumberOfPages
+        MinNumberOfPages
+            Set a size, in pages; indexes with fewer number of pages are skipped for index maintenance. The default is 1000 pages. 
+        MaxNumberOfPages
+            Set a size, in pages; indexes with greater number of pages are skipped for index maintenance. The default is no limitation.
+
+    SortInTempdb
+        Use tempdb for sort operations when rebuilding indexes.
+
+    MaxDOP
+        Specify the number of CPUs to use when rebuilding indexes. If this number is not specified, the global maximum degree of parallelism is used.
+
+    FillFactor
+        Indicate, as a percentage, how full the pages should be made when rebuilding indexes. If a percentage is not specified, the fill factor in sys.indexes is used.  
+    
+    UpdateStatistics
+        Value	Description
+        ALL	    Update index and column statistics.
+        INDEX	Update index statistics.
+        COLUMNS	Update column statistics.
+        NULL	Do not perform statistics maintenance. This is the default.
+
+    StatisticsSample
+        Indicate, as a percentage, how much of a table is gathered when updating statistics. A value of 100 is equivalent to a full scan. If no value is specified, then SQL Server automatically computes the required sample.
+
+    Indexes
+        Select indexes. If this parameter is not specified, all indexes are selected. The ALL_INDEXES keyword is supported. The hyphen character (-) is used to exclude indexes, and the percent character (%) is used for wildcard selection. All these operations can be combined by using the comma (,).
+
+        Value	                            Description
+        ALL_INDEXES                     	All indexes
+        ALL_INDEXES, -Db1.Schema1.Tbl1.Idx1	All indexes except the index Idx1 on the object Schema1.Tbl1 in the database Db1
+        ALL_INDEXES, -Db1.Schema1.Tbl1	    All indexes except indexes on the object Schema1.Tbl1 in the database Db1
+
+    TimeLimit
+        Set the time, in seconds, after which no commands are executed. By default, the time is not limited.
+
+    AvailabilityGroups
+        Select availability groups. The keyword ALL_AVAILABILITY_GROUPS is supported. The hyphen character (-) is used to exclude availability groups, and the percent character (%) is used for wildcard selection. All of these operations can be combined by using the comma (,).
+
+    DatabaseOrder
+        Value	            Description
+        NULL	            The order that the databases have been specified in. Then ascending by the database name. This is the default.
+        DATABASE_NAME_ASC	Ascending by the database name
+        DATABASE_NAME_DESC	Descending by the database name
+        DATABASE_SIZE_ASC	Ascending by the database size
+        DATABASE_SIZE_DESC	Descending by the database size
+
+    LogToTable
+        Log commands to the table dbo.CommandLog.
+
+        Value	Description
+        Y	    Log commands to the table.
+        N	    Do not log commands to the table. This is the default.
+
+
+    Examples
+    
+        A. Rebuild or reorganize all indexes with fragmentation on all user databases
+            EXECUTE dbo.IndexOptimize
+                @Databases              = 'USER_DATABASES',
+                @FragmentationLow       = NULL,
+                @FragmentationMedium    = 'INDEX_REORGANIZE,INDEX_REBUILD_ONLINE,INDEX_REBUILD_OFFLINE',
+                @FragmentationHigh      = 'INDEX_REBUILD_ONLINE,INDEX_REBUILD_OFFLINE',
+                @FragmentationLevel1    = 5,
+                @FragmentationLevel2    = 30,
+                @SortInTempdb           = 'Y',
+                @MaxDOP                 = 0,
+                @Indexes                = 'ALL_INDEXES, -AdventureWorks.Production.Product', -- Todos los IX menos XXX
+                @LogToTable             = 'Y',                 
+                @TimeLimit              = 3600 -- 1hora
+
+
+Create HTML
+
+
+
+
+
+
+
+
+
+
+
+
+
