@@ -1,4 +1,8 @@
+# Folders #
+###########
+
 data-engineering/sqlserver/BrentOzar/
+data-engineering/sqlserver/Erik Darling/
 
 # Compiled source #
 ###################
@@ -25,10 +29,3 @@ data-engineering/sqlserver/BrentOzar/
 *.log
 *.sql
 *.sqlite
-
-# Folders #
-######################
-00. BaseLine/
-00. Brent Ozar/
-00. Course/
-00. Erik Darlin/
