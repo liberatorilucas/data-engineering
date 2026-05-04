@@ -1,0 +1,38 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RDBMS", "RDBMS", "{A07D985E-A424-D1AD-CADB-AA32D575EC2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sqlserver", "sqlserver", "{4067E320-6E1E-EDBB-F98E-F785809C0301}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL Internal", "SQL Internal", "{3586A79F-DDCF-B384-25E6-C4AD39808316}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CLR Assembly", "CLR Assembly", "{877752B1-F5D6-A78B-2EC6-13F383869D62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlClrDemo", "RDBMS\sqlserver\SQL Internal\CLR Assembly\SqlClrDemo\SqlClrDemo.csproj", "{05B3FE89-ECF5-9168-1280-152AE86FCB0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05B3FE89-ECF5-9168-1280-152AE86FCB0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05B3FE89-ECF5-9168-1280-152AE86FCB0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05B3FE89-ECF5-9168-1280-152AE86FCB0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05B3FE89-ECF5-9168-1280-152AE86FCB0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4067E320-6E1E-EDBB-F98E-F785809C0301} = {A07D985E-A424-D1AD-CADB-AA32D575EC2E}
+		{3586A79F-DDCF-B384-25E6-C4AD39808316} = {4067E320-6E1E-EDBB-F98E-F785809C0301}
+		{877752B1-F5D6-A78B-2EC6-13F383869D62} = {3586A79F-DDCF-B384-25E6-C4AD39808316}
+		{05B3FE89-ECF5-9168-1280-152AE86FCB0B} = {877752B1-F5D6-A78B-2EC6-13F383869D62}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A02F3FA-05CE-4E28-8A9F-6927A90F6492}
+	EndGlobalSection
+EndGlobal
