@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\repo\\data-engineering\\RDBMS\\sqlserver\\SQL Internal\\CLR Assembly\\SqlClrDemo\\SqlClrDemo.csproj": {}
+    "G:\\repo\\VSC Workspace\\data-engineering\\RDBMS\\sqlserver\\SQL Internal\\CLR Assembly\\SqlClrDemo\\SqlClrDemo.csproj": {}
   },
   "projects": {
-    "G:\\repo\\data-engineering\\RDBMS\\sqlserver\\SQL Internal\\CLR Assembly\\SqlClrDemo\\SqlClrDemo.csproj": {
+    "G:\\repo\\VSC Workspace\\data-engineering\\RDBMS\\sqlserver\\SQL Internal\\CLR Assembly\\SqlClrDemo\\SqlClrDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\repo\\data-engineering\\RDBMS\\sqlserver\\SQL Internal\\CLR Assembly\\SqlClrDemo\\SqlClrDemo.csproj",
+        "projectUniqueName": "G:\\repo\\VSC Workspace\\data-engineering\\RDBMS\\sqlserver\\SQL Internal\\CLR Assembly\\SqlClrDemo\\SqlClrDemo.csproj",
         "projectName": "SqlClrDemo",
-        "projectPath": "G:\\repo\\data-engineering\\RDBMS\\sqlserver\\SQL Internal\\CLR Assembly\\SqlClrDemo\\SqlClrDemo.csproj",
+        "projectPath": "G:\\repo\\VSC Workspace\\data-engineering\\RDBMS\\sqlserver\\SQL Internal\\CLR Assembly\\SqlClrDemo\\SqlClrDemo.csproj",
         "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "G:\\repo\\data-engineering\\RDBMS\\sqlserver\\SQL Internal\\CLR Assembly\\SqlClrDemo\\obj\\",
+        "outputPath": "G:\\repo\\VSC Workspace\\data-engineering\\RDBMS\\sqlserver\\SQL Internal\\CLR Assembly\\SqlClrDemo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
