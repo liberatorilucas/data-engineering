@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SqlClrDemo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6719d3041f69f50f778b641ec8cdbdab56f5fd2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+74ba02e3948f7596e96c8f4069497796d144ee7d")]
 [assembly: System.Reflection.AssemblyProductAttribute("SqlClrDemo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SqlClrDemo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
