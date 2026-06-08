@@ -1,5 +1,0 @@
-C:\Users\usuario\OneDrive\Desktop\VSC\SQLCraftsmanship\02. RDBMS\SQL\00. Course\SQL Internal\CLR Assembly\SqlClrDemo\obj\Release\net9.0\SqlClrDemo.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\usuario\OneDrive\Desktop\VSC\SQLCraftsmanship\02. RDBMS\SQL\00. Course\SQL Internal\CLR Assembly\SqlClrDemo\obj\Release\net9.0\SqlClrDemo.AssemblyInfoInputs.cache
-C:\Users\usuario\OneDrive\Desktop\VSC\SQLCraftsmanship\02. RDBMS\SQL\00. Course\SQL Internal\CLR Assembly\SqlClrDemo\obj\Release\net9.0\SqlClrDemo.AssemblyInfo.cs
-C:\Users\usuario\OneDrive\Desktop\VSC\SQLCraftsmanship\02. RDBMS\SQL\00. Course\SQL Internal\CLR Assembly\SqlClrDemo\obj\Release\net9.0\SqlClrDemo.csproj.CoreCompileInputs.cache
-C:\Users\usuario\OneDrive\Desktop\VSC\SQLCraftsmanship\02. RDBMS\SQL\00. Course\SQL Internal\CLR Assembly\SqlClrDemo\obj\Release\net9.0\SqlClrDemo.sourcelink.json

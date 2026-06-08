@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>PostgreSQL Roadmap</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="postgresql-roadmap">PostgreSQL Roadmap</h1>
+<style>
+r { color: red }
+o { color: Orange }
+g { color: Green }
+lg { color: lightgreen }
+b { color: Blue }
+lb { color: lightblue }
+</style>
+<pre><code class="language-sql"></code></pre>
+<h1 id="1-postgresql-roadmap-index">1. PostgreSQL Roadmap Index</h1>
+<ul>
+<li>Index
+<ul>
+<li><a href="#Intro">Intro</a></li>
+<li><a href="#Home-Lab-Setup-(Build-This-First)">1. Home Lab Setup (Build This First)</a>
+<ul>
+<li><a href="#Hardware">1.1 Hardware</a></li>
+<li><a href="#VM-Layout">1.2 VM Layout</a></li>
+<li><a href="#Docker-Environment">1.3 Docker Environment</a></li>
+<li><a href="#Client-Tools">1.4 Client Tools</a></li>
+<li><a href="#Weekly-Study-Structure">1.5 Weekly Study Structure</a></li>
+</ul>
+</li>
+<li><a href="#Weekly-Study-Structure">2. Weekly Study Structure</a></li>
+<li><a href="#Monthly-Schedule">3. Monthly Schedule</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p><strong>Intro</strong></p>
+<p>You are a senior PostgreSQL Architect, Database Administrator, Performance Engineer, and Developer with extensive enterprise experience. I currently have strong experience in SQL Server as a Database Administrator, Developer, Engineer, and Performance specialist. I understand SQL Server concepts such as:</p>
+<ul>
+<li>Instance architecture</li>
+<li>Installation and configuration</li>
+<li>Security and permissions</li>
+<li>T-SQL development</li>
+<li>Stored procedures, functions, triggers</li>
+<li>Indexing strategies</li>
+<li>Query optimization and execution plans</li>
+<li>Statistics and cardinality estimation</li>
+<li>Performance tuning</li>
+<li>High Availability and Disaster Recovery (Always On, replication, log shipping)</li>
+<li>Backup and recovery</li>
+<li>SQL Server Agent jobs and automation</li>
+<li>Monitoring and troubleshooting</li>
+<li>Maintenance plans</li>
+<li>Resource management</li>
+<li>Database architecture and design</li>
+<li>PowerShell/database automation</li>
+<li>Troubleshooting blocking, deadlocks, waits, and bottlenecks</li>
+</ul>
+<p>I am performing a SQL Server → PostgreSQL platform transition, am I am trying to create a learning strategy. The objective is not “learn SQL syntax.” The objective is:</p>
+<p><strong><r>Become a PostgreSQL Architect/DBA/Performance Engineer with enterprise production capability in 13 months.</strong></p>
+<p>I developed a roadmap to [ROADMAP SQL Server → PostgreSQL platform transition]</p>
+<p>Taking in consideration that:</p>
+<ul>
+<li><strong>I have 6 hours per week to study (Low range: ~288–330 hours/year)</strong></li>
+<li><strong>Assuming 6 days/week (from Monday to Saturday)</strong></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>
+<p><strong>Home Lab Setup (Build This First)</strong></p>
+<ul>
+<li>
+<p><strong>1.1 Hardware</strong></p>
+<p>Recommended machine:
+* CPU: 8–16 cores
+* RAM: 32–64GB
+* Storage: 500GB+ SSD (NVMe preferred)
+* OS: Windows host + Linux VMs or Linux workstation</p>
+</li>
+<li>
+<p><strong>1.2 VM Layout</strong></p>
+<ul>
+<li>
+<p><strong>VM1 — PostgreSQL Primary</strong></p>
+<p><strong>MV 1</strong>
+Ubuntu Server 24.04 LTS
+PostgreSQL 17.x
+4 vCPU
+8–12GB RAM</p>
+<p><strong>Install Steps:</strong>
+sudo apt update
+sudo apt install postgresql postgresql-contrib</p>
+<p><strong>Validate:</strong>
+systemctl status postgresql</p>
+<p><strong>Expected:</strong>
+active (running)</p>
+</li>
+<li>
+<p><strong>VM2 — PostgreSQL Replicav</strong></p>
+<p><strong>VM 2</strong>
+Ubuntu Server 24.04
+PostgreSQL 17.x
+4 vCPU
+8–12GB RAM</p>
+<p><strong>Streaming replication</strong>
+<strong>On Primary</strong></p>
+<p><strong>postgresql.conf</strong>
+listen_addresses='*'
+wal_level=replica
+max_wal_senders=10
+max_replication_slots=10
+hot_standby=on</p>
+<p><strong>Create replication user:</strong>
+CREATE ROLE repl_user
+WITH REPLICATION LOGIN PASSWORD 'Password123';</p>
+<p><strong>pg_hba.conf:</strong>
+host replication repl_user 192.168.1.0/24 md5</p>
+<p><strong>Restart PostgreSQL:</strong>
+sudo systemctl restart postgresql</p>
+<p><strong>On replica (Secondary):</strong></p>
+<p><strong>Stop service:</strong>
+sudo systemctl stop postgresql</p>
+<p><strong>Remove data:</strong>
+rm -rf /var/lib/postgresql/17/main/*</p>
+<p><strong>Clone:</strong>
+pg_basebackup <br>
+-h PRIMARYIP <br>
+-D /var/lib/postgresql/17/main <br>
+-U repl_user <br>
+-P <br>
+-R</p>
+<p><strong>Start:</strong>
+sudo systemctl start postgresql</p>
+<p><strong>Validate:</strong>
+Primary:
+SELECT * FROM pg_stat_replication;</p>
+<pre><code>  Replica:
+      SELECT pg_is_in_recovery();
+
+  Expected:
+      t
+</code></pre>
+</li>
+<li>
+<p><strong>VM3 — HA/Proxy Server</strong></p>
+<p><strong>VM 3</strong></p>
+<table>
+<thead>
+<tr>
+<th>Software</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PgBouncer</td>
+<td>connection pooling</td>
+</tr>
+<tr>
+<td>Patroni</td>
+<td>HA orchestration</td>
+</tr>
+<tr>
+<td>HAProxy</td>
+<td>load balancing</td>
+</tr>
+<tr>
+<td>etcd</td>
+<td>distributed consensus</td>
+</tr>
+</tbody>
+</table>
+<p>Architecture</p>
+<pre><code>  Application
+      |
+  HAProxy
+      |
+  PgBouncer
+      |
+  Primary PostgreSQL
+      |
+  Replica PostgreSQL
+</code></pre>
+<p><strong>Doubts:</strong>
+<strong><r>What should I install here?</strong></p>
+</li>
+<li>
+<p><strong>VM4 - Monitoring Server</strong></p>
+<p><strong>Install</strong>
+Grafana
+Prometheus
+postgres_exporter</p>
+<p>Flow
+PostgreSQL
+|
+postgres_exporter
+|
+Prometheus
+|
+Grafana</p>
+<p><strong>to Monitor:</strong></p>
+<p>CPU
+Memory
+WAL generation
+locks
+dead tuples
+connections
+cache hit ratio
+slow queries</p>
+<p><strong>Doubts:</strong>
+<strong><r>How to install / set up / configure Streaming replication?</strong></p>
+</li>
+<li>
+<p><strong>VM5 — Kubernetes Lab (later)</strong></p>
+<p>Minikube or k3s</p>
+<p><strong>Minikube:</strong>
+local Kubernetes
+heavier
+more complete</p>
+<p><strong>k3s:</strong>
+lightweight Kubernetes
+production-friendly
+simpler</p>
+<p><strong>Recommendation:</strong>
+For your lab, use k3s</p>
+<p><strong>Reason:</strong>
+You only have 5 hours/week.</p>
+<p><strong>Doubts:</strong>
+<strong><r>How to install / set up / configure Streaming replication?</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>1.3 Docker Environment</strong></p>
+<p>Create docker-compose environments for:</p>
+<pre><code>* PostgreSQL
+* PgAdmin
+* PgBouncer
+* Patroni
+* Redis
+* API applications
+</code></pre>
+<p>Recommende layout</p>
+<pre><code>| Component      | Install location |
+| -------------- | ---------------- |
+| PostgreSQL     | VM1/VM2          |
+| PgBouncer      | VM3              |
+| Patroni        | VM3              |
+| HAProxy        | VM3              |
+| Grafana        | VM4              |
+| Prometheus     | VM4              |
+| pgAdmin        | host machine     |
+| DBeaver        | host machine     |
+| VSCode         | host machine     |
+| Docker Desktop | host machine     |
+| Postman        | host machine     |
+| Git            | host machine     |
+</code></pre>
+<p>Do not install DBeaver/VSCode inside DB VMs.</p>
+<p><strong>Doubts:</strong>
+<strong><r>How to install / set up / configure Streaming replication? Please give me as much info as you can.</strong>
+<strong>Should I do it in Docker and Kubernets? If yes give me the step by step to do it</strong>
+<strong>In this case what host machine means?</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Weekly Study Structure</p>
+<p>For 6 hours per week:</p>
+<pre><code>* Monday–Tuesday
+
+    Theory &amp; Documentation reading
+
+* Wednesday–Thursday
+     
+     Hands-on labs
+
+* Friday
+
+     DBA exercises
+
+* Saturday
+     
+     Project work
+
+* Sunday
+
+     Review + notes + troubleshooting practice
+</code></pre>
+<ul>
+<li>
+<p>Suggested split:</p>
+<p>40% Administration
+40% Performance
+10% Development
+10% Architecture</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Monthly Schedule</p>
+<ul>
+<li>
+<p>2.1 Month 1 — Linux DBA fundamentals</p>
+<p>Estimated: 20–35 hours</p>
+<p>Objectives: <strong>Understand Linux DBA fundamentals.</strong></p>
+<p>Topics:</p>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th style="text-align:right">PostgreSQL DBA Importance</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>systemctl</td>
+<td style="text-align:right">Critical</td>
+<td>PostgreSQL service management</td>
+</tr>
+<tr>
+<td>journalctl</td>
+<td style="text-align:right">Critical</td>
+<td>Logs and startup failures</td>
+</tr>
+<tr>
+<td>top</td>
+<td style="text-align:right">Critical</td>
+<td>CPU/memory monitoring</td>
+</tr>
+<tr>
+<td>htop</td>
+<td style="text-align:right">Useful</td>
+<td>Easier view than top</td>
+</tr>
+<tr>
+<td>vmstat</td>
+<td style="text-align:right">Critical</td>
+<td>Memory and CPU bottlenecks</td>
+</tr>
+<tr>
+<td>iostat</td>
+<td style="text-align:right">Critical</td>
+<td>Disk performance</td>
+</tr>
+<tr>
+<td>sar</td>
+<td style="text-align:right">Critical</td>
+<td>Historical performance analysis</td>
+</tr>
+<tr>
+<td>netstat</td>
+<td style="text-align:right">Moderate</td>
+<td>Mostly replaced</td>
+</tr>
+<tr>
+<td>ss</td>
+<td style="text-align:right">Critical</td>
+<td>Network connections</td>
+</tr>
+<tr>
+<td>Permissions/ownership</td>
+<td style="text-align:right">Critical</td>
+<td>PostgreSQL security</td>
+</tr>
+<tr>
+<td>sudo</td>
+<td style="text-align:right">Critical</td>
+<td>Privileged operations</td>
+</tr>
+<tr>
+<td>Bash scripting</td>
+<td style="text-align:right">Critical</td>
+<td>Automation</td>
+</tr>
+<tr>
+<td>cron</td>
+<td style="text-align:right">Critical</td>
+<td>Scheduling</td>
+</tr>
+<tr>
+<td>Package managers</td>
+<td style="text-align:right">Critical</td>
+<td>PostgreSQL installation</td>
+</tr>
+<tr>
+<td>LVM</td>
+<td style="text-align:right">High</td>
+<td>Storage expansion</td>
+</tr>
+<tr>
+<td>Filesystem fundamentals</td>
+<td style="text-align:right">Critical</td>
+<td>PostgreSQL storage</td>
+</tr>
+<tr>
+<td>ps</td>
+<td style="text-align:right">Critical</td>
+<td>Process Management</td>
+</tr>
+<tr>
+<td>kill</td>
+<td style="text-align:right">Critical</td>
+<td>Process Management</td>
+</tr>
+<tr>
+<td>killall</td>
+<td style="text-align:right">Critical</td>
+<td>Process Management</td>
+</tr>
+<tr>
+<td>pgrep</td>
+<td style="text-align:right">Critical</td>
+<td>Process Management</td>
+</tr>
+<tr>
+<td>pstree</td>
+<td style="text-align:right">Critical</td>
+<td>Process Management</td>
+</tr>
+<tr>
+<td>jobs</td>
+<td style="text-align:right">Critical</td>
+<td>Process Management</td>
+</tr>
+<tr>
+<td>nice</td>
+<td style="text-align:right">Critical</td>
+<td>Process Management</td>
+</tr>
+<tr>
+<td>renice</td>
+<td style="text-align:right">Critical</td>
+<td>Process Management</td>
+</tr>
+<tr>
+<td>Filesystem fundamentals</td>
+<td style="text-align:right">Critical</td>
+<td>Process Management</td>
+</tr>
+<tr>
+<td>Filesystem fundamentals</td>
+<td style="text-align:right">Critical</td>
+<td>Process Management</td>
+</tr>
+<tr>
+<td>free</td>
+<td style="text-align:right">Critical</td>
+<td>Memory Management</td>
+</tr>
+<tr>
+<td>cat /proc/meminfo</td>
+<td style="text-align:right">Critical</td>
+<td>Memory Management</td>
+</tr>
+<tr>
+<td>swapon</td>
+<td style="text-align:right">Critical</td>
+<td>Memory Management</td>
+</tr>
+<tr>
+<td>numactl</td>
+<td style="text-align:right">Critical</td>
+<td>Memory Management</td>
+</tr>
+<tr>
+<td>df</td>
+<td style="text-align:right">Critical</td>
+<td>File and Disk Analysis</td>
+</tr>
+<tr>
+<td>du</td>
+<td style="text-align:right">Critical</td>
+<td>File and Disk Analysis</td>
+</tr>
+<tr>
+<td>lsblk</td>
+<td style="text-align:right">Critical</td>
+<td>File and Disk Analysis</td>
+</tr>
+<tr>
+<td>fdisk</td>
+<td style="text-align:right">Critical</td>
+<td>File and Disk Analysis</td>
+</tr>
+<tr>
+<td>blkid</td>
+<td style="text-align:right">Critical</td>
+<td>File and Disk Analysis</td>
+</tr>
+<tr>
+<td>mount</td>
+<td style="text-align:right">Critical</td>
+<td>File and Disk Analysis</td>
+</tr>
+<tr>
+<td>grep</td>
+<td style="text-align:right">Critical</td>
+<td>File Searching/Text Processing</td>
+</tr>
+<tr>
+<td>find</td>
+<td style="text-align:right">Critical</td>
+<td>File Searching/Text Processing</td>
+</tr>
+<tr>
+<td>locate</td>
+<td style="text-align:right">Critical</td>
+<td>File Searching/Text Processing</td>
+</tr>
+<tr>
+<td>awk</td>
+<td style="text-align:right">Critical</td>
+<td>File Searching/Text Processing</td>
+</tr>
+<tr>
+<td>sed</td>
+<td style="text-align:right">Critical</td>
+<td>File Searching/Text Processing</td>
+</tr>
+<tr>
+<td>cut</td>
+<td style="text-align:right">Critical</td>
+<td>File Searching/Text Processing</td>
+</tr>
+<tr>
+<td>sort</td>
+<td style="text-align:right">Critical</td>
+<td>File Searching/Text Processing</td>
+</tr>
+<tr>
+<td>uniq</td>
+<td style="text-align:right">Critical</td>
+<td>File Searching/Text Processing</td>
+</tr>
+<tr>
+<td>ssh</td>
+<td style="text-align:right">Critical</td>
+<td>SSH and Remote Administration</td>
+</tr>
+<tr>
+<td>scp</td>
+<td style="text-align:right">Critical</td>
+<td>SSH and Remote Administration</td>
+</tr>
+<tr>
+<td>rsync</td>
+<td style="text-align:right">Critical</td>
+<td>SSH and Remote Administration</td>
+</tr>
+<tr>
+<td>ssh-keygen</td>
+<td style="text-align:right">Critical</td>
+<td>SSH and Remote Administration</td>
+</tr>
+<tr>
+<td>ping</td>
+<td style="text-align:right">Critical</td>
+<td>Network Troubleshooting</td>
+</tr>
+<tr>
+<td>traceroute</td>
+<td style="text-align:right">Critical</td>
+<td>Network Troubleshooting</td>
+</tr>
+<tr>
+<td>dig</td>
+<td style="text-align:right">Critical</td>
+<td>Network Troubleshooting</td>
+</tr>
+<tr>
+<td>nslookup</td>
+<td style="text-align:right">Critical</td>
+<td>Network Troubleshooting</td>
+</tr>
+<tr>
+<td>tcpdump</td>
+<td style="text-align:right">Critical</td>
+<td>Network Troubleshooting</td>
+</tr>
+<tr>
+<td>pidstat</td>
+<td style="text-align:right">Critical</td>
+<td>Performance Monitoring</td>
+</tr>
+<tr>
+<td>mpstat</td>
+<td style="text-align:right">Critical</td>
+<td>Performance Monitoring</td>
+</tr>
+<tr>
+<td>dstat</td>
+<td style="text-align:right">Critical</td>
+<td>Performance Monitoring</td>
+</tr>
+<tr>
+<td>tar</td>
+<td style="text-align:right">Critical</td>
+<td>Archive and Compression</td>
+</tr>
+<tr>
+<td>gzip</td>
+<td style="text-align:right">Critical</td>
+<td>Archive and Compression</td>
+</tr>
+<tr>
+<td>zip</td>
+<td style="text-align:right">Critical</td>
+<td>Archive and Compression</td>
+</tr>
+<tr>
+<td>xz</td>
+<td style="text-align:right">Critical</td>
+<td>Archive and Compression</td>
+</tr>
+</tbody>
+</table>
+<pre><code>   Important for DBAs
+       - Process management
+       - Memory management
+       - CPU analysis
+       - Disk I/O analysis
+       - Network troubleshooting
+       - SELinux/AppArmor
+       - File descriptors
+       - Logs and troubleshooting
+       - Users and groups
+       - Storage management
+       - Filesystem tuning
+       - Monitoring tools
+       - Service management
+       - Performance analysis
+       - Backup-related Linux concepts
+       - SSH and remote administration
+</code></pre>
+<p>Labs</p>
+<pre><code> **Doubts:**
+ **Create this part.**
+</code></pre>
+</li>
+<li>
+<p>2.2 Month 2 — PostgreSQL foundations</p>
+<p>Estimated: 20–35 hours</p>
+<p>Objectives</p>
+<pre><code>   Understand PostgreSQL architecture and ecosystem.
+</code></pre>
+<p>Topics
+PostgreSQL ecosystem
+Installation
+Linux basics
+Database objects
+Schemas
+Tablespaces
+psql
+pgAdmin
+DBeaver
+Basic SQL
+Data types
+PostgreSQL process architecture</p>
+<p>SQL Server → PostgreSQL Mapping
+SQL Server	    PostgreSQL
+Instance	    Cluster
+Database	    Database
+Schema	        Schema
+Filegroup	    Tablespace
+SQL Agent	    pg_cron/OS scheduler
+TempDB	        temporary files/work_mem
+SSMS	        pgAdmin/DBeaver</p>
+<p>Labs
+Install PostgreSQL on Windows
+Install PostgreSQL on Linux
+Create:
+databases
+schemas
+users
+tablespaces
+Use psql only</p>
+<p>Project
+Build: Inventory Management database</p>
+<p>Mistakes
+Thinking PostgreSQL cluster = SQL Server instance
+Ignoring Linux administration</p>
+</li>
+<li>
+<p>2.3 Month 3 — PostgreSQL Storage + MVCC + Planner basics</p>
+<p>Estimated: 50 hours</p>
+<p>Topics
+MVCC
+tuples
+Pages (8KB pages)
+heap storage
+visibility maps
+freezing
+WAL basics
+checkpoints
+transaction IDs (XIDs)
+EXPLAIN
+EXPLAIN ANALYZE
+selectivity
+planner behavior
+statistics
+pg_stats
+Heap pages
+FSM (Free Space Map)
+VM (Visibility Map)
+TOAST
+Relation forks</p>
+<p>SQL Server Mapping
+SQL Server	        PostgreSQL
+Row versioning  	MVCC
+Transaction Log	    WAL
+Ghost cleanup	    Vacuum</p>
+<p>Labs
+Generate bloat
+Observe VACUUM behavior
+Analyze dead tuples</p>
+<pre><code>   Your document already mentions this, but it deserves dedicated labs.
+
+   Add:
+
+   Lab 1: Generate dead tuples
+   Lab 2: Observe autovacuum
+   Lab 3: Create table bloat
+   Lab 4: Observe freeze behavior
+   Lab 5: Simulate transaction wraparound
+</code></pre>
+<p>Project
+Build scripts:
+storage report
+database health report</p>
+<p>Performance Focus</p>
+<pre><code>   Understand:
+
+       why VACUUM exists
+       transaction wraparound
+</code></pre>
+</li>
+<li>
+<p>2.4 Month 4 — PostgreSQL Security + Administration</p>
+<p>Estimated: 50 hours</p>
+<p>Topics:</p>
+<pre><code>   Roles
+   Privileges
+   Authentication
+   pg_hba.conf
+   SSL
+   Logging
+   Auditing
+   Row-level security
+</code></pre>
+<p>Labs
+Configure:
+LDAP authentication
+SSL
+role hierarchy</p>
+<p>Real DBA tasks
+User provisioning
+Permission troubleshooting
+Audit implementation</p>
+<p>Mistakes
+Using superuser excessively
+Weak role design</p>
+</li>
+<li>
+<p>2.5 Month 5 — PostgreSQL PL/pgSQL Development</p>
+<p>Estimated: 55 hours</p>
+<p>Topics:</p>
+<pre><code>   PL/pgSQL
+   Functions
+   Procedures
+   Triggers
+   CTEs
+   Recursive CTEs
+   Dynamic SQL
+   Exception handling
+</code></pre>
+<p>SQL Server Mapping
+SQL Server	        PostgreSQL
+T-SQL	            PL/pgSQL
+Stored Procedure	Procedure
+Function	        Function
+TRY/CATCH	        Exception block</p>
+<p>Labs
+Create:
+ETL procedures
+audit triggers
+dynamic query generators</p>
+<p>Project
+Employee Management System</p>
+</li>
+<li>
+<p>2.6 Month 6 — PostgreSQL Configuration + Connection tuning + Basic indexing</p>
+<p>Estimated: Doubts: How many hours for this task? XX hours</p>
+<p>Topics:</p>
+<pre><code>   PgBouncer
+   shared_buffers
+   work_mem
+   maintenance_work_mem
+   effective_cache_size
+   wal_buffers
+   max_wal_size
+   random_page_cost
+   seq_page_cost
+   checkpoint_timeout
+   connection lifecycle
+   max_connections
+   PgBouncer modes
+   session pooling
+   transaction pooling
+   statementpooling
+
+   Basic indexing:
+
+       B-tree
+       Partial indexes
+       Expression indexes
+       INCLUDE
+</code></pre>
+<p>SQL Server Mapping
+SQL Server	        PostgreSQL
+Doubts:Do this comparision</p>
+<p>Labs
+Create:</p>
+<p>Project</p>
+</li>
+<li>
+<p>2.7 Month 7 — PostgreSQL Advanced SQL</p>
+<p>Estimated: 55 hours</p>
+<p>Topics:</p>
+<pre><code>   Window functions
+   JSON
+   JSONB
+   Arrays
+   Recursive queries
+   LATERAL joins
+</code></pre>
+<p>Labs
+Create:
+API-style JSON outputs
+reporting queries</p>
+<p>Project
+REST-style database layer</p>
+<p>Performance Focus
+JSON indexing</p>
+</li>
+<li>
+<p>2.9 Month 8 — PostgreSQL Query plans + Advanced indexing</p>
+<p>Estimated: 60 hours</p>
+<p>Topics:</p>
+<pre><code>   histogram behavior
+   extended statistics
+   cardinality estimates
+   plan caching
+   generic plans
+   custom plans
+   prepared statements
+   parameter sensitivity
+   generic plans (parameter sniffing from SQL)
+   custom plans (parameter sniffing from SQL)
+   prepared statement behavior (parameter sniffing from SQL)
+   
+   Index types:
+       B-tree
+       Hash
+       GIN
+       GiST
+       BRIN
+       Partial
+       Expression
+</code></pre>
+<p>SQL Server Mapping
+SQL Server	        PostgreSQL
+Clustered Index	    Heap + index
+Included columns	INCLUDE
+Filtered Index	    Partial Index</p>
+<p>Labs
+Compare:
+index types
+plan behavior</p>
+<p>Project</p>
+<p>Performance optimization project</p>
+<pre><code>   Real DBA tasks
+   slow query analysis
+   index review
+</code></pre>
+</li>
+<li>
+<p>2.8 Month 9 — PostgreSQL partitioning</p>
+<p>Estimated: Doubts: How many hours shoud be used here? xxx hours</p>
+<p>Topics:</p>
+<pre><code>   Range partitioning
+   List partitioning
+   Hash partitioning
+   Partition pruning
+   Global indexes limitations
+   Maintenance strategies
+</code></pre>
+<p>Labs
+Create:
+Doubts: Do this? xxxx</p>
+<p>Project
+Doubts: Do this. xxx</p>
+<p>Performance Focus
+JSON indexing</p>
+</li>
+<li>
+<p>2.10 Month 10 — PostgreSQL Locking + Troubleshooting</p>
+<p>Estimated: 55 hours</p>
+<p>Topics:
+Locks
+Blocking
+Deadlocks
+Wait events
+pg_stat_activity
+pg_locks</p>
+<p>Labs
+Simulate:
+deadlocks
+blocking chains</p>
+<p>Project
+Build: Blocking dashboard</p>
+<p>Performance Focus
+Wait analysis</p>
+</li>
+<li>
+<p>2.11 Month 11 — PostgreSQL Monitoring + Maintenance</p>
+<p>Estimated: 55 hours</p>
+<p>Topics:
+VACUUM
+ANALYZE
+autovacuum tuning
+statistics views
+extensions</p>
+<pre><code>   Extensions:
+       pg_stat_statements
+       pgstattuple
+       pg_buffercache
+       pg_cron
+       pg_repack
+       hypopg
+       auto_explain
+</code></pre>
+<p>Labs
+Configure: monitoring stack</p>
+<p>Project
+DBA monitoring dashboard</p>
+</li>
+<li>
+<p>2.12 Month 12 — PostgreSQL Backup + Recovery + DR</p>
+<p>Estimated: 55 hours</p>
+<p>Topics:
+pg_dump
+pg_restore
+PITR
+WAL archiving
+base backup
+pg_dump
+schema conversion
+T-SQL incompatibilities</p>
+<p>Labs
+Simulate:
+database corruption
+accidental deletion
+restore scenarios</p>
+<p>Project
+Enterprise backup strategy</p>
+<p>DBA Tasks
+Recovery drills</p>
+</li>
+<li>
+<p>2.13 Month 13 — PostgreSQL Replication + HA + Migration</p>
+<p>Estimated: 65 hours</p>
+<p>Topics:
+Streaming replication
+Logical replication
+Replication slots
+Failover
+Patroni
+pgloader
+ora2pg
+AWS SCT
+Babelfish</p>
+<p>Labs
+Build: Primary → Replica environment
+Perform: failover - switchover</p>
+<p>SQL Server Mapping
+SQL Server	        PostgreSQL
+Always On AG	    Streaming Replication + Patroni
+Replication	        Logical replication
+Log Shipping	    WAL shipping</p>
+</li>
+<li>
+<p>2.14 Month 14 — PostgreSQL Internals + Architecture + Expert Topics</p>
+<p>Estimated: 70 hours</p>
+<p>Topics:
+planner internals
+parser
+optimizer
+executor
+source code overview
+extension development
+migration strategies
+enterprise patterns</p>
+<p>Labs
+Build:
+custom extension
+migration project</p>
+</li>
+<li>
+<p>2.15 Month 15 — PostgreSQL Cloud + Kubernetes</p>
+<p>Estimated: 50 hours</p>
+<p>Topics:</p>
+<pre><code>   Cloud:
+       Amazon Web Services
+       Microsoft
+       Google
+
+   Services:
+       Managed PostgreSQL
+       Kubernetes concepts
+       StatefulSets
+       Operators
+</code></pre>
+<p>Labs
+Deploy: PostgreSQL on Kubernetes</p>
+<p>Project
+Hybrid architecture design</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Final Capstone Projects</p>
+<ul>
+<li>
+<p>Project 1</p>
+<p>Enterprise E-Commerce Platform</p>
+<p>Requirements:</p>
+<pre><code>  partitioning
+  replication
+  backup
+  monitoring
+  HA
+  performance tuning
+</code></pre>
+</li>
+<li>
+<p>Project 2</p>
+<p>SQL Server → PostgreSQL Migration</p>
+<p>Migrate:
+schema
+procedures
+functions
+jobs
+security</p>
+</li>
+<li>
+<p>Project 3</p>
+<p>Enterprise Monitoring Platform</p>
+<p>Build:
+Grafana dashboards
+wait monitoring
+blocking alerts
+performance reports</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Milestones</p>
+<ul>
+<li>
+<p>Month 3</p>
+<p>You should be able to:</p>
+<pre><code>  Install PostgreSQL
+  Configure users/security
+  Understand architecture
+</code></pre>
+</li>
+<li>
+<p>Month 6</p>
+<p>You should:</p>
+<pre><code>  Read execution plans
+  Tune queries
+  Design indexes
+</code></pre>
+</li>
+<li>
+<p>Month 9</p>
+<p>You should:</p>
+<pre><code>  Recover databases
+  Configure backups
+  Troubleshoot issues
+</code></pre>
+</li>
+<li>
+<p>Month 12</p>
+<p>You should:</p>
+<pre><code>  Design enterprise architectures
+  Implement HA
+  Migrate SQL Server workloads
+  Diagnose complex performance issues
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Recommended Books</p>
+<ol>
+<li>PostgreSQL 16 Administration Cookbook</li>
+<li>Mastering PostgreSQL in Application Development</li>
+<li>The Internals of PostgreSQL</li>
+<li>PostgreSQL Query Optimization</li>
+</ol>
+</li>
+<li>
+<p>Recommended Documentation</p>
+<ol>
+<li>
+<p>Official PostgreSQL Documentation</p>
+<p><a href="https://www.postgresql.org/docs/?utm_source=chatgpt.com">https://www.postgresql.org/docs/?utm_source=chatgpt.com</a></p>
+<p>Start with Tutorial</p>
+<p><a href="https://www.postgresql.org/docs/online-resources/">https://www.postgresql.org/docs/online-resources/</a></p>
+</li>
+<li>
+<p>PostgreSQL Wiki</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Recommended YouTube Channels</p>
+<ol>
+<li>
+<p>Postgres Conference Channel
+<a href="https://www.youtube.com/@postgresconf?utm_source=chatgpt.com">https://www.youtube.com/@postgresconf?utm_source=chatgpt.com</a></p>
+</li>
+<li>
+<p>PGCasts
+<a href="https://www.youtube.com/@PGCasts?utm_source=chatgpt.com">https://www.youtube.com/@PGCasts?utm_source=chatgpt.com</a>
+<a href="https://www.youtube.com/@PGCasts">https://www.youtube.com/@PGCasts</a></p>
+</li>
+<li>
+<p>Crunchy Data
+<a href="https://www.youtube.com/@PGCasts?utm_source=chatgpt.com">https://www.youtube.com/@PGCasts?utm_source=chatgpt.com</a>
+<a href="https://www.youtube.com/@CrunchyData?utm_source=chatgpt.com">https://www.youtube.com/@CrunchyData?utm_source=chatgpt.com</a></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Recommended Courses</p>
+<ol>
+<li>
+<p>PostgreSQL Exercises
+<a href="https://pgexercises.com/?utm_source=chatgpt.com">https://pgexercises.com/?utm_source=chatgpt.com</a></p>
+</li>
+<li>
+<p>PostgreSQL Tutorial
+<a href="https://pgexercises.com/?utm_source=chatgpt.com">https://pgexercises.com/?utm_source=chatgpt.com</a></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Recommended Blogs</p>
+<ol>
+<li>
+<p>cybertec Blog
+<a href="https://www.cybertec-postgresql.com/en/postgresql-blog/?utm_source=chatgpt.com">https://www.cybertec-postgresql.com/en/postgresql-blog/?utm_source=chatgpt.com</a></p>
+</li>
+<li>
+<p>Percona PostgreSQL Blog
+<a href="https://www.percona.com/blog/?utm_source=chatgpt.com">https://www.percona.com/blog/?utm_source=chatgpt.com</a></p>
+</li>
+<li>
+<p>Crunchy Data Blog
+<a href="https://www.crunchydata.com/blog?utm_source=chatgpt.com">https://www.crunchydata.com/blog?utm_source=chatgpt.com</a></p>
+</li>
+<li>
+<p>2ndQuadrant Archive Blog
+<a href="https://www.2ndquadrant.com/en/blog/?utm_source=chatgpt.com">https://www.2ndquadrant.com/en/blog/?utm_source=chatgpt.com</a></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Recommended Books</p>
+<p>a. PostgreSQL Query Optimization
+b. The Internals of PostgreSQL
+c. PostgreSQL 16 Administration Cookbook
+d. Mastering PostgreSQL in Application Development
+e. SQL Performance Explained
+f. Designing Data Intensive Applications</p>
+</li>
+<li>
+<p>Final notes</p>
+<p>a. For someone with your SQL Server background, the steepest learning curve is usually MVCC + VACUUM + Linux + PostgreSQL planner behavior rather than SQL itself. Those four areas deserve extra depth throughout the year.</p>
+<p>I would like to add also Performance topics like Indexes, statistics, Execution Plans, Parameter Sniffing, etc</p>
+<p>b. Biggest SQL Server mindset changes</p>
+<p>Your document correctly identifies some of these, but I would elevate them because they are usually the hardest transition areas.</p>
+<pre><code>SQL Server mindset	PostgreSQL reality
+Instance	        Cluster
+TempDB	            work_mem/temp files
+Auto maintenance	VACUUM strategy matters
+Clustered index	    Heap + indexes
+Parameter sniffing	Generic/custom plans
+Fill factor focus	MVCC bloat focus
+SQL Agent	        pg_cron/Linux scheduler
+AG	                Streaming replication + Patroni
+DMV-centric	        pg_stat views + extensions
+</code></pre>
+</li>
+<li>
+<p>SQL Server mappings</p>
+<table>
+<thead>
+<tr>
+<th>SQL Server</th>
+<th>PostgreSQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TempDB</td>
+<td>work_mem/temp files</td>
+</tr>
+<tr>
+<td>SQL Agent</td>
+<td>pg_cron/Linux scheduler</td>
+</tr>
+<tr>
+<td>DMV</td>
+<td>pg_stat views</td>
+</tr>
+<tr>
+<td>AlwaysOn AG</td>
+<td>Streaming Replication + Patroni</td>
+</tr>
+<tr>
+<td>Resource Governor</td>
+<td>OS + workload management</td>
+</tr>
+<tr>
+<td>Included Columns</td>
+<td>INCLUDE</td>
+</tr>
+<tr>
+<td>Filtered indexes</td>
+<td>Partial indexes</td>
+</tr>
+<tr>
+<td>Database snapshots</td>
+<td>no direct equivalent</td>
+</tr>
+<tr>
+<td>Query Store</td>
+<td>pg_stat_statements</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+
+            
+            
+        </body>
+        </html>

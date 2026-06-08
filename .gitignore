@@ -3,6 +3,7 @@
 
 data-engineering/sqlserver/BrentOzar/
 data-engineering/sqlserver/Erik Darling/
+data-engineering/Work/Urbe
 
 # Compiled source #
 ###################
@@ -29,3 +30,7 @@ data-engineering/sqlserver/Erik Darling/
 *.log
 *.sql
 *.sqlite
+
+# Personal Reads #
+##################
+READS.md
