@@ -1,4 +1,4 @@
-# PostgreSQL Roadmap
+
 <style>
 r { color: red }
 o { color: Orange }
@@ -6,261 +6,285 @@ g { color: Green }
 lg { color: lightgreen }
 b { color: Blue }
 lb { color: lightblue }
+
+- To create tables:
+  
+  https://www.tablesgenerator.com/markdown_tables
+
+> [!NOTE]  
+> Highlights information that users should take into account, even when skimming.
+
+> [!TIP]
+> Optional information to help a user be more successful.
+
+> [!IMPORTANT]
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]  
+> Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
+
+> [!IDEA]
+> XXXXX 
 </style>
 
-```sql
-```  
+# PostgreSQL Roadmap
 
-# 1. PostgreSQL Roadmap Index
+## Index
 
-* Index
-  - [Intro](#Intro)  
-  - [1. Home Lab Setup (Build This First)](#Home-Lab-Setup-(Build-This-First))
-    - [1.1 Hardware](#Hardware)
-    - [1.2 VM Layout](#VM-Layout)
-    - [1.3 Docker Environment](#Docker-Environment)
-    - [1.4 Client Tools](#Client-Tools)
-    - [1.5 Weekly Study Structure](#Weekly-Study-Structure)
-  - [2. Weekly Study Structure](#Weekly-Study-Structure)
-  - [3. Monthly Schedule](#Monthly-Schedule)
+- [Intro](#Intro)  
+- [1. Home Lab Setup (Build This First)](#Home-Lab-Setup-(Build-This-First))
+  - [1.1 Hardware](#Hardware)
+  - [1.2 VM Layout](#VM-Layout)
+  - [1.3 Docker Environment](#Docker-Environment)
+  - [1.4 Client Tools](#Client-Tools)
+  - [1.5 Weekly Study Structure](#Weekly-Study-Structure)
+- [2. Weekly Study Structure](#Weekly-Study-Structure)
+- [3. Monthly Schedule](#Monthly-Schedule)
 
----
 
-* **Intro**
+## Intro
 
-    You are a senior PostgreSQL Architect, Database Administrator, Performance Engineer, and Developer with extensive enterprise experience. I currently have strong experience in SQL Server as a Database Administrator, Developer, Engineer, and Performance specialist. I understand SQL Server concepts such as: 
-        
-    * Instance architecture
-    * Installation and configuration 
-    * Security and permissions 
-    * T-SQL development 
-    * Stored procedures, functions, triggers 
-    * Indexing strategies
-    * Query optimization and execution plans 
-    * Statistics and cardinality estimation 
-    * Performance tuning 
-    * High Availability and Disaster Recovery (Always On, replication, log shipping) 
-    * Backup and recovery 
-    * SQL Server Agent jobs and automation 
-    * Monitoring and troubleshooting 
-    * Maintenance plans 
-    * Resource management 
-    * Database architecture and design 
-    * PowerShell/database automation 
-    * Troubleshooting blocking, deadlocks, waits, and bottlenecks
+You are a senior PostgreSQL Architect, Database Administrator, Performance Engineer, and Developer with extensive enterprise experience. I currently have strong experience in SQL Server as a Database Administrator, Developer, Engineer, and Performance specialist. I understand SQL Server concepts such as:
 
-    I am performing a SQL Server → PostgreSQL platform transition, am I am trying to create a learning strategy. The objective is not “learn SQL syntax.” The objective is:
+  * Instance architecture
+  * Installation and configuration
+  * Security and permissions
+  * T-SQL development
+  * Stored procedures, functions, triggers
+  * Indexing strategies
+  * Query optimization and execution plans
+  * Statistics and cardinality estimation
+  * Performance tuning
+  * High Availability and Disaster Recovery (Always On, replication, log shipping)
+  * Backup and recovery
+  * SQL Server Agent jobs and automation
+  * Monitoring and troubleshooting
+  * Maintenance plans
+  * Resource management
+  * Database architecture and design
+  * PowerShell/database automation
+  * Troubleshooting blocking, deadlocks, waits, and bottlenecks
 
-    **<r>Become a PostgreSQL Architect/DBA/Performance Engineer with enterprise production capability in 13 months.**
+I am performing a SQL Server → PostgreSQL platform transition, I am trying to create a learning strategy. The objective is not “learn SQL syntax.” The objective is:
 
-    I developed a roadmap to [ROADMAP SQL Server → PostgreSQL platform transition]
+  **<r>Become a PostgreSQL Architect/DBA/Performance Engineer with enterprise production capability in 13 months.**
 
-    Taking in consideration that:
+I developed a roadmap to [ROADMAP SQL Server → PostgreSQL platform transition]
 
-    * **I have 6 hours per week to study (Low range: ~288–330 hours/year)**
-    * **Assuming 6 days/week (from Monday to Saturday)**
+Taking in consideration that:
 
-1. **Home Lab Setup (Build This First)**
+  * **I have 6 hours per week to study (Low range: ~288–330 hours/year)**
+  * **Assuming 6 days/week (from Monday to Saturday)**
 
-    * **1.1 Hardware**
+## Home Lab Setup (Build This First)
 
-        Recommended machine:
-            * CPU: 8–16 cores
-            * RAM: 32–64GB
-            * Storage: 500GB+ SSD (NVMe preferred)
-            * OS: Windows host + Linux VMs or Linux workstation
+  * Hardware Recommended
+    * CPU: 8–16 cores
+    * RAM: 32–64GB
+    * Storage: 500GB+ SSD (NVMe preferred)
+    * OS: Windows host + Linux VMs or Linux workstation
 
-    * **1.2 VM Layout**
+  * VM Layout
 
-        * **VM1 — PostgreSQL Primary**
+      * VM1 — PostgreSQL Primary
+       Ubuntu Server 24.04 LTS
+       PostgreSQL 17.x
+       4 vCPU
+       8–12GB RAM
+
+       Install Steps:
+       ```bash
+       sudo apt update
+       sudo apt install postgresql postgresql-contrib
+       ```
+
+       Validate:
+       ```bash
+       systemctl status postgresql
+       ```
+
+       Expected Result:
+       ```bash
+       active (running)
+       ```
+
+      * VM2 — PostgreSQL Secondary
+        Ubuntu Server 24.04
+        PostgreSQL 17.x
+        4 vCPU
+        8–12GB RAM
+
+      * Streaming replication
+
+        * On Primary
+
+          - postgresql.conf
+              listen_addresses='*'
+              wal_level=replica
+              max_wal_senders=10
+              max_replication_slots=10
+              hot_standby=on
+
+          - Create replication user
+
+            ```sql
+            CREATE ROLE repl_user
+            WITH REPLICATION LOGIN PASSWORD 'Password123';
+            ```
+
+          - pg_hba.conf
+
+            host replication repl_user 192.168.1.0/24 md5
+
+          - Restart PostgreSQL
             
-            **MV 1**
-            Ubuntu Server 24.04 LTS
-            PostgreSQL 17.x
-            4 vCPU
-            8–12GB RAM
+            ```bash
+            sudo systemctl restart postgresql
+            ```  
 
-            **Install Steps:** 
-            sudo apt update
-            sudo apt install postgresql postgresql-contrib
+        * On Secondary
 
-            **Validate:**
-            systemctl status postgresql
-            
-            **Expected:**
-            active (running)
+          - Stop service
+              ```bash
+              sudo systemctl stop postgresql
+              ```
+          
+          - Remove data
+            ```bash
+            rm -rf /var/lib/postgresql/17/main/*
+            ```
 
-        * **VM2 — PostgreSQL Replicav**
+          - Clone
+              pg_basebackup \
+                  -h PRIMARYIP \
+                  -D /var/lib/postgresql/17/main \
+                  -U repl_user \
+                  -P \
+                  -R
 
-            **VM 2**
-            Ubuntu Server 24.04
-            PostgreSQL 17.x
-            4 vCPU
-            8–12GB RAM
+          - Start
+              ```bash
+              sudo systemctl start postgresql
+              ```
 
-            **Streaming replication**
-            **On Primary**
+          - Validate
 
-            **postgresql.conf**
-                listen_addresses='*'
-                wal_level=replica
-                max_wal_senders=10
-                max_replication_slots=10
-                hot_standby=on
+              ```sql
+              Primary:
+              SELECT * FROM pg_stat_replication;
+              
+              Replica:
+                  SELECT pg_is_in_recovery();
+              ```
 
-            **Create replication user:**
-                CREATE ROLE repl_user
-                WITH REPLICATION LOGIN PASSWORD 'Password123';
+              Expected: t
 
-            **pg_hba.conf:**
-                host replication repl_user 192.168.1.0/24 md5
+      * VM3 — HA/Proxy Server
 
-            **Restart PostgreSQL:**
-                sudo systemctl restart postgresql
+        | Software  | Purpose               |
+        |-----------|-----------------------|
+        | PgBouncer | connection pooling    |
+        | Patroni	| HA orchestration      |
+        | HAProxy	| load balancing        |
+        | etcd	    | distributed consensus |
 
-            **On replica (Secondary):**
+        - Architecture
 
-            **Stop service:**
-                sudo systemctl stop postgresql
-
-            **Remove data:**
-                rm -rf /var/lib/postgresql/17/main/*
-
-           **Clone:**
-                pg_basebackup \
-                    -h PRIMARYIP \
-                    -D /var/lib/postgresql/17/main \
-                    -U repl_user \
-                    -P \
-                    -R
-
-            **Start:**
-                sudo systemctl start postgresql
-
-            **Validate:**
-                Primary:
-                    SELECT * FROM pg_stat_replication;
-
-                Replica:
-                    SELECT pg_is_in_recovery();
-
-                Expected:
-                    t
-
-        * **VM3 — HA/Proxy Server**
-            
-            **VM 3**
-            | Software  | Purpose               |
-            |-----------|-----------------------|
-            | PgBouncer | connection pooling    |
-            | Patroni	| HA orchestration      |
-            | HAProxy	| load balancing        |
-            | etcd	    | distributed consensus |
-            
-            Architecture
-
-                Application
-                    |
-                HAProxy
-                    |
-                PgBouncer
-                    |
-                Primary PostgreSQL
-                    |
-                Replica PostgreSQL
-
-            **Doubts:**
-            **<r>What should I install here?**
-
-        * **VM4 - Monitoring Server**
-            
-          **Install**
-            Grafana
-            Prometheus
-            postgres_exporter
-        
-          Flow
-            PostgreSQL
+            Application
                 |
-            postgres_exporter
+             HAProxy
                 |
-            Prometheus
+            PgBouncer
                 |
-            Grafana
+         Primary PostgreSQL
+                |
+         Replica PostgreSQL
 
-          **to Monitor:**
+        > [!WARNING]  
+        > <r>What should I install here?
 
-            CPU
-            Memory
-            WAL generation
-            locks
-            dead tuples
-            connections
-            cache hit ratio
-            slow queries
+      * VM4 - Monitoring Server
 
-          **Doubts:**
-          **<r>How to install / set up / configure Streaming replication?**
+        - Install
+          
+          Grafana
+          Prometheus
+          postgres_exporter
 
-        * **VM5 — Kubernetes Lab (later)**
-  
-           Minikube or k3s
+        - Flow
+          
+          PostgreSQL
+              |
+          postgres_exporter
+              |
+          Prometheus
+              |
+           Grafana
 
-           **Minikube:**
-              local Kubernetes
-              heavier
-              more complete
+        - Monitor
+          
+          CPU - Memory - WAL generation - locks - dead tuples - connections - cache hit ratio - slow queries
 
-           **k3s:**
-              lightweight Kubernetes
-              production-friendly
-              simpler
+        > [!WARNING]  
+        > <r>How to install / set up / configure Streaming replication?
 
-           **Recommendation:**
-              For your lab, use k3s
 
-           **Reason:**
-              You only have 5 hours/week.
+      * VM5 — Kubernetes Lab (later)
 
-           **Doubts:**
-           **<r>How to install / set up / configure Streaming replication?**
+        Minikube or k3s
 
-    * **1.3 Docker Environment**
+        **Minikube:**
+            local Kubernetes
+            heavier
+            more complete
 
-        Create docker-compose environments for:
+        **k3s:**
+            lightweight Kubernetes
+            production-friendly
+            simpler
 
-          * PostgreSQL
-          * PgAdmin
-          * PgBouncer
-          * Patroni
-          * Redis
-          * API applications
+        **Recommendation:**
+            For your lab, use k3s
 
-        Recommende layout
+        **Reason:**
+            You only have 5 hours/week.
 
-          | Component      | Install location |
-          | -------------- | ---------------- |
-          | PostgreSQL     | VM1/VM2          |
-          | PgBouncer      | VM3              |
-          | Patroni        | VM3              |
-          | HAProxy        | VM3              |
-          | Grafana        | VM4              |
-          | Prometheus     | VM4              |
-          | pgAdmin        | host machine     |
-          | DBeaver        | host machine     |
-          | VSCode         | host machine     |
-          | Docker Desktop | host machine     |
-          | Postman        | host machine     |
-          | Git            | host machine     |
+        > [!TIP]
+        > <r>Not install this VM for now
 
-        Do not install DBeaver/VSCode inside DB VMs.
 
-        **Doubts:**
-        **<r>How to install / set up / configure Streaming replication? Please give me as much info as you can.**
-        **Should I do it in Docker and Kubernets? If yes give me the step by step to do it**
-        **In this case what host machine means?**
+  * Environments recommende
+    
+      We are going to use:
 
-2. Weekly Study Structure
+      * PostgreSQL
+      * PgAdmin
+      * PgBouncer
+      * Patroni
+      * Redis
+      * API applications
+
+      Recommende layout
+
+      | Component      | Install location |
+      | -------------- | ---------------- |
+      | PostgreSQL     | VM1/VM2          |
+      | PgBouncer      | VM3              |
+      | Patroni        | VM3              |
+      | HAProxy        | VM3              |
+      | Grafana        | VM4              |
+      | Prometheus     | VM4              |
+      | pgAdmin        | host machine     |
+      | DBeaver        | host machine     |
+      | VSCode         | host machine     |
+      | Postman        | host machine     |
+      | Git            | host machine     |
+
+
+## Weekly Study Structure
         
     For 6 hours per week:
 
@@ -291,7 +315,7 @@ lb { color: lightblue }
         10% Development
         10% Architecture
 
-3. Monthly Schedule
+2. Monthly Schedule
 
    * 2.1 Month 1 — Linux DBA fundamentals
        
